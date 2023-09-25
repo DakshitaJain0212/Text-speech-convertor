@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useRef} from "react";
+import "./App.css";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 
 function App() {
+
+  const { transcript , resetTranscript } = useSpeechRecognition()
+
+
+  const { browserSupportsSpeechRecognition } =
+    useSpeechRecognition();
+
+  const startListening = () =>
+    SpeechRecognition.startListening({ continuous: true });
+    
+const divRef = useRef();
+
+const CopyToClipboard = () => {
+  const textToCopy = divRef.current.innerText;
+   
+  navigator.clipboard.writeText(textToCopy);
+}
+
+
+  if (!browserSupportsSpeechRecognition) {
+    return null;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="main-container">
+      <div className="container">
+        <h2>Speech to Text Convertor</h2>
+        <br />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Transform Spoken Words into Text Effortlessly and Simplify Your Workflow. Your Voice, Our Typing!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+
+      <div className="main-content">
+      <i className="fa-sharp fa-solid fa-arrow-rotate-right" onClick={resetTranscript}></i>
+        <div className="content" ref={divRef}>{transcript}</div>
+
+      </div>
+
+      <div className="btn-style">
+        <button onClick={CopyToClipboard}>Copy to Clipboard</button>
+        <button onClick={startListening}>Start Listening</button>
+        <button className="stop-btn" onClick={SpeechRecognition.stopListening}>
+          Stop Listening
+        </button>
+      </div>
     </div>
   );
 }
