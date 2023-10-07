@@ -1,19 +1,22 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./App.css";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 function App() { 
 
   // hook to reset the transcript
   const { transcript, resetTranscript } = useSpeechRecognition();
 
+
+
   // hook to start the listening
   const { browserSupportsSpeechRecognition } = useSpeechRecognition();
 
   const startListening = () =>
-    SpeechRecognition.startListening({ continuous: true , language: 'en-IN'});
+    SpeechRecognition.startListening({ continuous: true , language: 'en-IN' });
 
 
     // copy to clipboard 
@@ -42,10 +45,12 @@ function App() {
       </div>
 
       <div className="main-content">
+        
         <i
           className="fa-sharp fa-solid fa-arrow-rotate-right"
           onClick={resetTranscript}
         ></i>
+
         <div className="content" ref={divRef}>
           {transcript}
         </div>

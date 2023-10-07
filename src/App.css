@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Work Sans", sans-serif;
-  color: #fff;
+  color: #DDE6ED;
   font-weight: bold;
 }
 
@@ -18,7 +18,7 @@ body {
   justify-content: center;
   align-items: center;
   align-self: center;
-  background-image: url('./bear1.jpg');
+  background-image: url('./bg1.webp');
 }
 
 .container {
@@ -27,7 +27,7 @@ body {
 }
 
 h2 {
-  color: #774936;
+  color: #fff;
   text-align: center;
   font-size: 48px;
   letter-spacing: -0.2px;
@@ -50,8 +50,9 @@ p {
   position: relative;
   resize: none;
   box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
-  background: #b08968;
-  border: 0.5px solid #b08968;
+  opacity: 0.5;
+  background: #9DB2BF;
+  border: 0.5px solid #9DB2BF;
   border-radius: 16px;
   align-items: center;
 }
@@ -70,7 +71,7 @@ p,
 }
  
 .content{
-  background: #b08968;
+  color: #000;
 }
 
 .btn-style{
@@ -80,7 +81,7 @@ p,
 
 button {
   /* position: absolute; */
-  background: #7f5539;
+  background: #27374D;
   color: rgb(255 255 255);
   border-radius: 6px;
   padding: 16px 32px;
@@ -97,13 +98,13 @@ button {
 
 button:focus,
 button:hover {
-  background: #9c6644;
+  background: #526D82;
   box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
 }
 
 i{
-  background-color: #b08968;
-  color: #7f5539;
+  background-color: none;
+  color: #27374D;
   float: right;
 }
 
